@@ -1,0 +1,57 @@
+<!-- templates/update_student.html -->
+
+{% extends "base.html" %}
+
+{% block main %}
+    <h1>Редактировать студента</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <p>
+            <label>Имя:</label>
+            <input type="text" name="first_name" value="{{ student.first_name }}">
+        </p>
+        <p>
+            <label>Фамилия:</label>
+            <input type="text" name="last_name" value="{{ student.last_name }}">
+        </p>
+        <p>
+            <label>Возраст:</label>
+            <input type="number" name="age" value="{{ student.age }}">
+        </p>
+        <p>
+            <label>Номер телефона:</label>
+            <input type="text" name="phone_number" value="{{ student.phone_number }}">
+        </p>
+        <p>
+            <label>Номер телефона родителя:</label>
+            <input type="text" name="parent_phone_number" value="{{ student.parent_phone_number }}">
+        </p>
+        <p>
+            <label>Группа:</label>
+            <select name="group">
+                <option value="">-- Выберите группу --</option>
+                {% for group in groups %}
+                    <option value="{{ group.id }}"
+                        {% if student.group.id == group.id %}selected{% endif %}>
+                        {{ group.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            <label>Аватарка:</label>
+            {% if student.avatar %}
+                <img src="{{ student.avatar.url }}" width="80"><br>
+                <small>Загрузите новую если хотите заменить</small><br>
+            {% endif %}
+            <input type="file" name="avatar">
+        </p>
+
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <a href="{% url 'student_list' %}">Назад к списку</a>
+
+{% endblock main %}

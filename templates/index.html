@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+    <h1>Hello, World!</h1>
+
+    <h1>Students of Prolab</h1>
+
+    <div class="students">
+        {% for student in students_list %}
+            
+                <div class="student_card">
+                    <div class="student_image">
+                        <a class="underline_none" href="{% url 'student_detail' id=student.id %}">
+                            {% if student.avatar %} 
+                                <img src="{{ student.avatar.url }}" alt="{{ student.first_name }}">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="student_info">
+                        <div>Имя: {{ student.first_name }},</div>
+                        <div>Фамилия: {{ student.last_name }},</div>
+                        <div>Телефон: {{ student.phone_number }},</div>
+                        <div>Группа: {{ student.group.name }},</div>
+                    </div>
+                    <a href="{% url 'update_student' pk=student.id %}">update</a>
+                </div>
+            
+        {% endfor %}
+    </div>
+    <div class="groups">
+        {% for group in groups_list %}
+            <div class="group_card">
+                <div class="group_info">
+                    <div>Группа: {{ group.name }}</div>
+                    <div>Дата Начала: {{ group.start_date }}</div>
+                    <div>Дата Окончания: {{ group.end_date }}</div>
+                    <div>Учитель: {{ group.teacher.first_name }} {{ group.teacher.last_name }}</div>
+                </div>
+                <a href="{% url 'update_group' pk=group.id %}">update</a>
+            </div>
+        {% endfor %}    
+
+    </div>
+{% endblock main %}

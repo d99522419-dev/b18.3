@@ -1,0 +1,71 @@
+
+    .students{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    }
+
+    .student_card{
+    margin-top: 100px;
+    border: 1px solid;
+    padding: 15px;
+    }
+
+    .header{
+        display: flex;
+        justify-content: center;
+        gap :300px;
+        background-color: rgb(2, 2, 2); 
+    }
+    .footer{
+        display: flex;
+        justify-content: center;
+        gap :300px;
+
+        .block1{
+            p{
+                margin-top: 20px;
+            }
+
+        }
+        .block2{
+            .p{
+                margin-top: 20px;
+            }
+        }
+        .block3{
+            .p{
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .students{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* justify-content: space-between; */
+    gap: 30px;
+}
+
+.student_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 15px;
+    border-radius: 15px;
+    min-height: 400px;
+}
+
+.student_image{
+    max-width: 200px;
+}
+
+.student_image img{
+    width: 100%;
+    max-height: 200px;
+}
+
+.student_info{
+    font-size: 21px;
+}

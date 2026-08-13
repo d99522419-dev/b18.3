@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Detail page for student</h1>
+<div class="student-detail">
+    <div class="student-detail_image">
+        {% if student.avatar %}
+            <img src="{{ student.avatar.url }}" alt="{{ student.first_name }}">
+        {% endif %}
+    </div>
+    <div class="student_info">
+        <h1>Имя: {{ student.first_name }}</h1>
+        <h2>Фамилия: {{ student.last_name }}</h2>
+        <h2>Телефон: {{ student.phone_number }}</h2>
+        <h2>Возраст: {{ student.age }}</h2>
+        <h2>Телефон родителя: {{ student.parent_phone_number }}</h2>
+        <h2>Группа: {{ student.group.name }}</h2>
+        <h2>Имя Ментора: {{ student.group.mentor.first_name }}</h2>
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include "components/header.html" %}
+
+    <main>
+        {%block main%}
+
+        {%endblock main%}
+    </main>
+    
+    {% include "components/footer.html" %}  
+   
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>
